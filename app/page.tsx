@@ -13,19 +13,25 @@ export default function Home() {
       {/* Hero Section */}
       <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-neutral-900 border-b-8 border-primary">
         <div className="absolute inset-0 z-0 opacity-40">
-          {/* Placeholder for Hero Image - using gradient for now if no image */}
-          <div className="w-full h-full bg-gradient-to-br from-neutral-800 to-black animate-pulse" />
+          <Image
+            src="/images/bg1.webp"
+            alt="Hero Background"
+            fill
+            className="object-cover"
+            priority
+          />
         </div>
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto space-y-6">
-          <h1 className="text-6xl md:text-8xl font-black italic text-white tracking-tighter drop-shadow-lg">
-            PEDASNYA<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-pink-400">
-              GA NGOTAK!
+          <h1 className="text-6xl md:text-8xl font-black italic text-yellow-400 tracking-tighter drop-shadow-lg">
+            <span className="text-transparent bg-clip-text bg-gradient-to-b from-yellow-400 from-40% to-yellow-600">
+              RASANYA
+            </span><br />
+            <span className="px-3 text-transparent bg-clip-text bg-gradient-to-b from-primary from-40% to-pink-600 text-multi-stroke">
+              TIDAK KORUPSI
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-neutral-200 font-medium max-w-2xl mx-auto">
-            Mie viral yang bikin kamu nangis tapi nagih lagi.
-            Berani coba level paling ngeri?
+            Sensasi spesial yang berbeda di setiap menunyaaa
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
             <CTAButton href="/menu" className="text-xl px-10 py-4">

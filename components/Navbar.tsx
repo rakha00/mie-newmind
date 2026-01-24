@@ -39,12 +39,13 @@ export default function Navbar() {
         <nav
             className={cn(
                 "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-                scrolled ? "bg-neutral-900/95 backdrop-blur-md shadow-sm py-2" : "bg-transparent py-4"
+                "bg-neutral-900 py-3 md:bg-transparent md:backdrop-blur-none md:shadow-none md:py-2",
+                scrolled && "md:bg-neutral-900/95 md:backdrop-blur-md md:shadow-sm md:py-1"
             )}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
                 {/* Logo */}
-                <Link href="/" className="flex items-center">
+                <Link href="/" className="hidden md:flex items-center">
                     <Image
                         src="/images/logo.webp"
                         alt="Mie Newmind Logo"
@@ -76,7 +77,7 @@ export default function Navbar() {
 
                 {/* Mobile Toggle */}
                 <button
-                    className="md:hidden text-white"
+                    className="md:hidden text-white ml-auto"
                     onClick={() => setIsOpen(!isOpen)}
                 >
                     {isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -85,7 +86,7 @@ export default function Navbar() {
 
             {/* Mobile Menu */}
             {isOpen && (
-                <div className="absolute top-full left-0 right-0 bg-neutral-900 shadow-xl p-6 md:hidden flex flex-col gap-4 border-t border-neutral-800">
+                <div className="absolute top-full left-0 right-0 bg-neutral-900 p-6 md:hidden flex flex-col gap-4">
                     {NAV_LINKS.map((link) => (
                         <Link
                             key={link.href}
