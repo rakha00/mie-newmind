@@ -12,9 +12,10 @@ export default function Footer() {
                         <Image
                             src="/images/halal.webp"
                             alt="Mie Newmind Logo"
-                            width={120}
-                            height={40}
-                            className="h-10 w-auto object-contain brightness-0 invert"
+                            width={48}
+                            height={48}
+                            className="h-12 w-12 object-contain brightness-0 invert"
+                            style={{ width: 'auto', height: 'auto' }}
                         />
                     </div>
                     <div className="text-neutral-500 text-sm md:border-l md:border-neutral-800 md:pl-6">

@@ -48,7 +48,7 @@ export default function Card({ children, className, imageSrc, title, badge, onCl
             )}
 
             <div className="p-6">
-                {title && <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">{title}</h3>}
+                {title && <h3 className="text-xl font-bold mb-2 text-white group-hover:text-primary transition-colors">{title}</h3>}
                 {children}
             </div>
         </div>

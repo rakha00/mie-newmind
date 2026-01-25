@@ -3,10 +3,16 @@ import CTAButton from '@/components/CTAButton';
 import Card from '@/components/Card';
 import { MENU_ITEMS } from '@/data/menu';
 import Image from 'next/image';
+import InstagramFeed from '@/components/InstagramFeed';
+import { INSTAGRAM_POSTS } from '@/data/instagram';
+import BackgroundAccessories from '@/components/BackgroundAccessories';
 
 export default function Home() {
   // Get 3 best seller items
   const bestSellers = MENU_ITEMS.filter(item => item.isBestSeller).slice(0, 3);
+
+  // Use static Instagram posts
+  const instagramPosts = INSTAGRAM_POSTS;
 
   return (
     <div className="flex flex-col gap-0">
@@ -48,12 +54,12 @@ export default function Home() {
       </div>
 
       {/* Produk Highlight */}
-      <Section className="bg-neutral-50">
+      <Section className="bg-neutral-900 border-b py-10 md:py-10 border-neutral-800">
         <div className="text-center mb-16 space-y-4">
-          <h2 className="text-4xl md:text-5xl font-black italic text-neutral-900">
+          <h2 className="text-4xl md:text-5xl font-black italic text-white">
             Paling <span className="text-primary">Dicari</span>
           </h2>
-          <p className="text-lg text-neutral-600">
+          <p className="text-lg text-neutral-400">
             Awas, menu ini menyebabkan kecanduan akut.
           </p>
         </div>
@@ -64,10 +70,10 @@ export default function Home() {
               key={item.id}
               title={item.name}
               badge="BEST SELLER"
-              imageSrc={item.image} // Note: This will need real images or placeholders
-              className="hover:scale-105"
+              imageSrc={item.image}
+              className="hover:scale-105 bg-neutral-800 border-neutral-700 hover:shadow-primary/20"
             >
-              <p className="text-neutral-600 mb-4 line-clamp-2">
+              <p className="text-neutral-300 mb-4 line-clamp-2">
                 {item.description}
               </p>
               <div className="flex justify-between items-center">
@@ -79,36 +85,40 @@ export default function Home() {
           ))}
         </div>
         <div className="mt-12 text-center">
-          <CTAButton href="/menu" variant="outline" className="border-neutral-900 text-neutral-900 hover:bg-neutral-900 hover:text-white">
+          <CTAButton href="/menu" variant="outline" className="border-white text-white hover:bg-white hover:text-black">
             Lihat Semua Menu
           </CTAButton>
         </div>
       </Section>
 
-      {/* About Section */}
-      <Section className="bg-primary text-white">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <h2 className="text-4xl md:text-5xl font-black italic leading-tight">
-              Bukan Sekadar<br />Mie Biasa.
-            </h2>
-            <p className="text-lg opacity-90 leading-relaxed">
-              Mie Newmind hadir buat lo yang bosen sama makanan yang gitu-gitu aja.
-              Kita paduin bumbu rahasia yang rich banget sama cabe pilihan yang pedesnya nampol.
-              Tempat nongkrong asik, harga mahasiswa, rasa bintang lima.
-            </p>
-            <ul className="space-y-3 font-bold text-xl">
-              <li className="flex items-center gap-2">🔥 Pedas Berlevel</li>
-              <li className="flex items-center gap-2">🎸 Vibes Anak Muda</li>
-              <li className="flex items-center gap-2">💰 Dompet Aman</li>
-            </ul>
-          </div>
-          <div className="relative h-[400px] w-full rounded-3xl overflow-hidden bg-black/20">
-            {/* Placeholder for Vibe Image */}
-            <div className="absolute inset-0 flex items-center justify-center text-white/50 text-2xl font-bold">
-              [FOTO CROWD OUTLET]
-            </div>
-          </div>
+      {/* Instagram Feed */}
+      <Section className="bg-primary text-white py-10 md:py-10 relative overflow-hidden">
+        <BackgroundAccessories />
+
+        <div className="text-center mb-12 space-y-4 relative z-10">
+          <h2 className="text-4xl md:text-5xl font-black italic">
+            Pantau Terus <span className="text-white drop-shadow-md">Keseruan Kami!</span>
+          </h2>
+          <p className="text-xl text-white/90 max-w-2xl mx-auto">
+            Jangan sampai ketinggalan promo gila-gilaan dan momen seru di outlet kami. Intip langsung di Instagram!
+          </p>
+        </div>
+
+        {/* Feed Grid */}
+        <div className="container mx-auto max-w-6xl px-4 mb-10">
+          <InstagramFeed posts={instagramPosts} />
+        </div>
+
+        <div className="text-center">
+          <a
+            href="https://instagram.com/mienewmind/"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 px-8 py-3 bg-white text-primary rounded-full font-bold hover:bg-neutral-100 transition-colors shadow-lg"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg>
+            Follow @mienewmind
+          </a>
         </div>
       </Section>
 
@@ -118,11 +128,10 @@ export default function Home() {
           Mau Cuan Bareng?
         </h2>
         <p className="text-xl text-neutral-400 max-w-2xl mx-auto mb-10">
-          Gabung jadi mitra Mie Newmind sekarang. Sistem gampang, profit nendang.
-          Jadilah bos di kotamu sendiri!
+          Gabung jadi mitra Mie Newmind sekarang. Peluang Usaha FnB yang Terbukti Dapat Bertumbuh dengan Baik
         </p>
         <CTAButton href="/franchise" className="text-xl px-12 py-5 shadow-2xl shadow-primary/50 animate-bounce">
-          Pengen Punya Outlet!
+          Pengen Punya Franchise!
         </CTAButton>
       </Section>
 
