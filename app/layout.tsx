@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Mie Newmind - Mie Pedasnya Anak Muda',
+  title: 'Mie Newmind - Rasanya Tidak Korupsi',
   description: 'Website resmi Mie Newmind. Mie pedas viral yang bikin nagih. Cek menu, lokasi outlet, dan info franchise di sini!',
 };
 

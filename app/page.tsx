@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-0">
       {/* Hero Section */}
-      <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-neutral-900 border-b-8 border-primary">
+      <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-neutral-900 border-b-8 border-primary pt-10 md:pt-0">
         <div className="absolute inset-0 z-0 opacity-40">
           <Image
             src="/images/bg1.webp"
@@ -26,14 +26,17 @@ export default function Home() {
             <span className="text-transparent bg-clip-text bg-gradient-to-b from-yellow-400 from-40% to-yellow-600">
               RASANYA
             </span><br />
-            <span className="px-3 text-transparent bg-clip-text bg-gradient-to-b from-primary from-40% to-pink-600 text-multi-stroke">
-              TIDAK KORUPSI
+            <span className="px-3 text-transparent bg-clip-text bg-gradient-to-b from-primary from-40% to-pink-600">
+              TIDAK
+            </span><br className='md:hidden' />
+            <span className="px-3 text-transparent bg-clip-text bg-gradient-to-b from-primary from-40% to-pink-600">
+              KORUPSI
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-neutral-200 font-medium max-w-2xl mx-auto">
-            Sensasi spesial yang berbeda di setiap menunyaaa
+          <p className="text-xl md:text-2xl text-neutral-200 font-medium max-w-2xl mx-auto text-shadow-sm text-shadow-black">
+            <span className="font-bold text-yellow-500">Mie viral</span> yang menghadirkan perpaduan sempurna: <span className="font-bold text-red-500">pedas</span> bikin nagih, rasa bikin puas, dan harga tetap <span className="font-bold text-green-500">hemat</span>!
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <CTAButton href="/menu" className="text-xl px-10 py-4">
               Lihat Menu
             </CTAButton>
@@ -71,9 +74,6 @@ export default function Home() {
                 <span className="text-xl font-bold text-primary">
                   Rp {item.price.toLocaleString('id-ID')}
                 </span>
-                <CTAButton href="/menu" variant="ghost" className="text-sm px-0 hover:bg-transparent hover:text-primary-hover">
-                  Detail &rarr;
-                </CTAButton>
               </div>
             </Card>
           ))}
