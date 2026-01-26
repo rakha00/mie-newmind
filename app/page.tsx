@@ -18,6 +18,7 @@ export default function Home() {
     <div className="flex flex-col gap-0">
       {/* Hero Section */}
       <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-neutral-900 border-b-8 border-primary pt-10 md:pt-0">
+        {/* Background Image */}
         <div className="absolute inset-0 z-0 opacity-40">
           <Image
             src="/images/bg1.webp"
@@ -27,8 +28,10 @@ export default function Home() {
             priority
           />
         </div>
-        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto space-y-6">
-          <h1 className="text-6xl md:text-8xl font-black italic text-yellow-400 tracking-tighter drop-shadow-lg">
+
+        {/* Main Content */}
+        <div className="relative z-10 text-center px-4 pt-16 max-w-5xl mx-auto space-y-8">
+          <h1 className="text-6xl md:text-8xl font-black italic text-yellow-400 tracking-tighter drop-shadow-2xl">
             <span className="text-transparent bg-clip-text bg-gradient-to-b from-yellow-400 from-40% to-yellow-600">
               RASANYA
             </span><br />
@@ -39,23 +42,50 @@ export default function Home() {
               KORUPSI
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-neutral-200 font-medium max-w-2xl mx-auto text-shadow-sm text-shadow-black">
-            <span className="font-bold text-yellow-500">Mie viral</span> yang menghadirkan perpaduan sempurna: <span className="font-bold text-red-500">pedas</span> bikin nagih, rasa bikin puas, dan harga tetap <span className="font-bold text-green-500">hemat</span>!
+
+          <p className="text-xl md:text-2xl text-neutral-200 font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-lg">
+            <span className="font-bold text-yellow-400">Mie viral</span> yang menghadirkan perpaduan sempurna <span className="font-bold text-red-400">pedas</span> bikin nagih, rasa bikin puas, dan harga tetap <span className="font-bold text-green-400">hemat</span>!
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-            <CTAButton href="/menu" className="text-xl px-10 py-4">
-              Lihat Menu
-            </CTAButton>
-            <CTAButton href="/outlet" variant="outline" className="text-xl px-10 py-4 border-white text-white hover:bg-white hover:text-black">
-              Cari Outlet
-            </CTAButton>
+
+          {/* Modern CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
+            {/* Primary CTA with Icon */}
+            <a
+              href="/menu"
+              className="group relative inline-flex items-center justify-center gap-3 px-10 py-4 text-xl font-black rounded-2xl bg-primary text-white overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_20px_60px_-15px_rgba(228,59,138,0.6)] active:scale-95"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-primary to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <span className="relative">Lihat Menu</span>
+              <svg className="relative w-6 h-6 transition-transform translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+
+            {/* Secondary CTA with Icon */}
+            <a
+              href="/outlet"
+              className="group relative inline-flex items-center justify-center gap-3 px-10 py-4 text-xl font-black rounded-2xl bg-white/10 backdrop-blur-md text-white border-2 border-white/30 overflow-hidden transition-all duration-300 hover:bg-white hover:text-neutral-900 hover:scale-105 hover:border-white active:scale-95"
+            >
+              <svg className="relative w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span className="relative">Cari Outlet</span>
+            </a>
+          </div>
+
+          {/* Decorative Bottom Line */}
+          <div className="flex items-center justify-center gap-2 pt-8">
+            <div className="h-[2px] w-12 bg-gradient-to-r from-transparent to-white/50 rounded-full" />
+            <div className="h-2 w-2 bg-primary rounded-full shadow-[0_0_20px_rgba(228,59,138,0.5)]" />
+            <div className="h-[2px] w-12 bg-gradient-to-l from-transparent to-white/50 rounded-full" />
           </div>
         </div>
       </div>
 
-      {/* Produk Highlight */}
+      {/* Product Highlight Section */}
       <Section className="bg-neutral-900 border-b py-10 md:py-10 border-neutral-800">
-        <div className="text-center mb-16 space-y-4">
+        <div className="text-center mb-8 space-y-4">
           <h2 className="text-4xl md:text-5xl font-black italic text-white">
             Paling <span className="text-primary">Dicari</span>
           </h2>
@@ -64,23 +94,16 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
           {bestSellers.map((item) => (
             <Card
               key={item.id}
               title={item.name}
               badge="BEST SELLER"
               imageSrc={item.image}
-              className="hover:scale-105 bg-neutral-800 border-neutral-700 hover:shadow-primary/20"
+              isDark={true}
             >
-              <p className="text-neutral-300 mb-4 line-clamp-2">
-                {item.description}
-              </p>
-              <div className="flex justify-between items-center">
-                <span className="text-xl font-bold text-primary">
-                  Rp {item.price.toLocaleString('id-ID')}
-                </span>
-              </div>
+              {item.description}
             </Card>
           ))}
         </div>
@@ -91,7 +114,7 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Instagram Feed */}
+      {/* Instagram Feed Section */}
       <Section className="bg-primary text-white py-10 md:py-10 relative overflow-hidden">
         <BackgroundAccessories />
 
@@ -104,7 +127,6 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Feed Grid */}
         <div className="container mx-auto max-w-6xl px-4 mb-10">
           <InstagramFeed posts={instagramPosts} />
         </div>
@@ -122,7 +144,7 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Franchise CTA */}
+      {/* Franchise CTA Section */}
       <Section className="text-center py-24 bg-neutral-900 text-white">
         <h2 className="text-4xl md:text-6xl font-black italic mb-6">
           Mau Cuan Bareng?
