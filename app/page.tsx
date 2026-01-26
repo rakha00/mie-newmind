@@ -1,11 +1,11 @@
-import Section from '@/components/Section';
-import CTAButton from '@/components/CTAButton';
-import Card from '@/components/Card';
+import Section from '@/components/ui/Section';
+import CTAButton from '@/components/ui/CTAButton';
+import Card from '@/components/ui/Card';
 import { MENU_ITEMS } from '@/data/menu';
 import Image from 'next/image';
-import InstagramFeed from '@/components/InstagramFeed';
+import InstagramFeed from '@/components/sections/InstagramFeed';
 import { INSTAGRAM_POSTS } from '@/data/instagram';
-import BackgroundAccessories from '@/components/BackgroundAccessories';
+import BackgroundAccessories from '@/components/ui/BackgroundAccessories';
 
 export default function Home() {
   // Get 3 best seller items

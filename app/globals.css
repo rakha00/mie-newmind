@@ -11,6 +11,8 @@
   --color-foreground: var(--foreground);
   --color-primary: #e43b8a;
   --color-primary-hover: #c93b82;
+  --color-secondary: #fcc600;
+  --color-secondary-hover: #e39f00;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }

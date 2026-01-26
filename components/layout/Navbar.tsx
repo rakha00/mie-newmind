@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
-import CTAButton from './CTAButton';
+import CTAButton from '@/components/ui/CTAButton';
 import { cn } from '@/lib/utils';
 
 const NAV_LINKS = [
@@ -40,8 +40,8 @@ export default function Navbar() {
         <nav
             className={cn(
                 "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-                "bg-neutral-900 py-3 md:bg-transparent md:backdrop-blur-none md:shadow-none md:py-2",
-                scrolled && "md:bg-neutral-900/95 md:backdrop-blur-md md:shadow-sm md:py-1"
+                "bg-neutral-900 py-3 lg:bg-transparent lg:backdrop-blur-none lg:shadow-none lg:py-2",
+                scrolled && "lg:bg-neutral-900/95 lg:backdrop-blur-md lg:shadow-sm lg:py-1"
             )}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -52,7 +52,7 @@ export default function Navbar() {
                         alt="Mie Newmind Logo"
                         width={150}
                         height={45}
-                        className="h-10 md:h-16 w-auto object-contain"
+                        className="h-10 lg:h-16 w-auto object-contain"
                         priority
                     />
                 </Link>
@@ -60,13 +60,13 @@ export default function Navbar() {
                 {/* Mobile Glowing CTA */}
                 <CTAButton
                     href="/franchise"
-                    className="md:hidden text-xs px-3 py-1.5 bg-pink-600 text-white border-none rounded-full animate-pulse shadow-[0_0_15px_rgba(219,39,119,0.7)] ml-auto mr-4"
+                    className="lg:hidden text-xs px-3 py-1.5 bg-pink-600 text-white border-none rounded-full animate-pulse shadow-[0_0_15px_rgba(219,39,119,0.7)] ml-auto mr-4"
                 >
                     Gabung Franchise
                 </CTAButton>
 
                 {/* Desktop Menu */}
-                <div className="hidden md:flex items-center gap-8">
+                <div className="hidden lg:flex items-center gap-8">
                     {NAV_LINKS.map((link) => (
                         <Link
                             key={link.href}
@@ -86,7 +86,7 @@ export default function Navbar() {
 
                 {/* Mobile Toggle */}
                 <button
-                    className="md:hidden text-white"
+                    className="lg:hidden text-white"
                     onClick={() => setIsOpen(!isOpen)}
                 >
                     {isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -95,7 +95,7 @@ export default function Navbar() {
 
             {/* Mobile Menu */}
             {isOpen && (
-                <div className="absolute top-full left-0 right-0 bg-neutral-900 p-6 md:hidden flex flex-col gap-4 shadow-xl border-t border-neutral-800">
+                <div className="absolute top-full left-0 right-0 bg-neutral-900 p-6 lg:hidden flex flex-col gap-4 shadow-xl border-t border-neutral-800">
                     {NAV_LINKS.map((link) => (
                         <Link
                             key={link.href}
