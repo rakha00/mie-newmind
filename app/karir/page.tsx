@@ -1,6 +1,6 @@
 import { CAREERS } from '@/data/careers';
-import Section from '@/components/Section';
-import CTAButton from '@/components/CTAButton';
+import Section from '@/components/ui/Section';
+import CTAButton from '@/components/ui/CTAButton';
 import { Briefcase, MapPin } from 'lucide-react';
 
 export default function KarirPage() {

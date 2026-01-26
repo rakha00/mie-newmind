@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 import { MENU_ITEMS, CATEGORIES } from '@/data/menu';
-import Section from '@/components/Section';
-import Card from '@/components/Card';
+import Section from '@/components/ui/Section';
+import Card from '@/components/ui/Card';
 import { cn } from '@/lib/utils';
-import CTAButton from '@/components/CTAButton';
+import CTAButton from '@/components/ui/CTAButton';
 
 export default function MenuPage() {
     const [activeCategory, setActiveCategory] = useState('all');

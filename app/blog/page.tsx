@@ -1,8 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import Link from 'next/link';
-import Section from '@/components/Section';
-import Card from '@/components/Card';
+import Section from '@/components/ui/Section';
+import Card from '@/components/ui/Card';
 import { notFound } from 'next/navigation';
 
 export default async function BlogPage() {

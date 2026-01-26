@@ -1,8 +1,8 @@
 'use client';
 
 import { REGIONS } from '@/data/regions';
-import Section from '@/components/Section';
-import CTAButton from '@/components/CTAButton';
+import Section from '@/components/ui/Section';
+import CTAButton from '@/components/ui/CTAButton';
 import { MessageCircle } from 'lucide-react';
 
 export default function ReservasiPage() {

@@ -1,9 +1,9 @@
 'use client';
 
 import { OUTLETS } from '@/data/outlets';
-import Section from '@/components/Section';
-import Card from '@/components/Card';
-import CTAButton from '@/components/CTAButton';
+import Section from '@/components/ui/Section';
+import Card from '@/components/ui/Card';
+import CTAButton from '@/components/ui/CTAButton';
 import { MapPin, Clock, Phone } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
