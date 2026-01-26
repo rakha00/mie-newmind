@@ -3,6 +3,7 @@
 import { motion, Variants } from 'framer-motion';
 import Section from '@/components/ui/Section';
 import { BadgeCheck } from 'lucide-react';
+import Image from 'next/image';
 
 const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 50 },
@@ -33,7 +34,7 @@ export default function FranchiseGalleryAndInvestment() {
 
             <div className="max-w-6xl mx-auto px-4 relative z-10 space-y-16">
 
-                {/* 3 PLACEHOLDER PHOTOS */}
+                {/* GALLERY PHOTOS */}
                 <motion.div
                     variants={staggerContainer}
                     initial="hidden"
@@ -47,9 +48,14 @@ export default function FranchiseGalleryAndInvestment() {
                             variants={scaleUp}
                             className="aspect-[4/3] bg-neutral-800 rounded-3xl overflow-hidden relative group border border-neutral-700/50 hover:border-yellow-500/50 transition-all"
                         >
-                            <div className="absolute inset-0 flex items-center justify-center bg-neutral-900/50 group-hover:bg-neutral-900/30 transition-all">
-                                <span className="text-neutral-600 group-hover:text-yellow-500 font-bold text-xl tracking-widest transition-colors">FOTO {i}</span>
-                            </div>
+                            <Image
+                                src={`/images/franchise/image${i}.webp`}
+                                alt={`Franchise Mie Newmind ${i}`}
+                                fill
+                                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                sizes="(max-width: 768px) 100vw, 33vw"
+                            />
+                            <div className="absolute inset-0 bg-neutral-900/20 group-hover:bg-transparent transition-all" />
                         </motion.div>
                     ))}
                 </motion.div>

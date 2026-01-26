@@ -3,7 +3,6 @@
 import { motion, Variants } from 'framer-motion';
 import Section from '@/components/ui/Section';
 import { GridPattern, DotPattern } from '@/components/ui/GridPattern';
-import { BadgeCheck } from 'lucide-react';
 
 const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 50 },

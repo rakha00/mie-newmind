@@ -13,7 +13,6 @@ const NAV_LINKS = [
     { href: '/menu', label: 'Menu' },
     { href: '/outlet', label: 'Outlet' },
     { href: '/reservasi', label: 'Reservasi' },
-    // Franchise moved to CTA button
     { href: '/karir', label: 'Karir' },
     { href: '/blog', label: 'Blog' },
 ];
@@ -108,11 +107,6 @@ export default function Navbar() {
                             {link.label}
                         </Link>
                     ))}
-                    {/* <div className="flex flex-col gap-3 mt-4">
-                        <CTAButton href="/franchise" className="w-full bg-pink-600 hover:bg-pink-700 text-white border-none">
-                            Info Franchise
-                        </CTAButton>
-                    </div> */}
                 </div>
             )}
         </nav>

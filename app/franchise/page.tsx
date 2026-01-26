@@ -1,5 +1,5 @@
 import FranchiseStats from '@/components/franchise/FranchiseStats';
-import VisionMoto from '@/components/sections/VisionMoto';
+import FranchiseVisionMoto from '@/components/franchise/FranchiseVisionMoto';
 import FranchiseRequirements from '@/components/franchise/FranchiseRequirements';
 import FranchiseGalleryAndInvestment from '@/components/franchise/FranchiseGalleryAndInvestment';
 import FranchiseBenefits from '@/components/franchise/FranchiseBenefits';
@@ -12,22 +12,22 @@ export default function FranchisePage() {
             {/* HERO SECTION */}
             <FranchiseHero />
 
-            {/* STATS & HISTORY SECTION */}
+            {/* STATS SECTION */}
             <FranchiseStats />
 
             {/* VISION & MOTO SECTION */}
-            <VisionMoto />
+            <FranchiseVisionMoto />
 
-            {/* SYARAT KEMITRAAN SECTION */}
+            {/* REQUIREMENTS SECTION */}
             <FranchiseRequirements />
 
             {/* GALLERY & INVESTMENT SECTION */}
             <FranchiseGalleryAndInvestment />
 
-            {/* BENEFITS LIST SECTION */}
+            {/* BENEFITS SECTION */}
             <FranchiseBenefits />
 
-            {/* FINAL CTA SECTION */}
+            {/* CTA SECTION */}
             <FranchiseCTA />
         </div>
     );
