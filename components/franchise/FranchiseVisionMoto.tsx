@@ -59,7 +59,7 @@ export default function VisionMoto() {
                                 <h2 className="text-xl md:text-3xl font-black italic mb-2 tracking-wide text-primary">VISI</h2>
                                 <div className="h-1 w-10 md:w-16 bg-primary mx-auto rounded-full mb-3 md:mb-4"></div>
                                 <p className="text-md md:text-xl font-black leading-relaxed text-neutral-200">
-                                    "Menjadi Merk Restoran Mie Pedas no 1 dengan kepuasan dan pelayanan terbaik di Indonesia."
+                                    &quot;Menjadi Merk Restoran Mie Pedas no 1 dengan kepuasan dan pelayanan terbaik di Indonesia.&quot;
                                 </p>
                             </div>
                         </div>
@@ -80,7 +80,7 @@ export default function VisionMoto() {
                                 <h2 className="text-xl md:text-3xl font-black italic mb-2 tracking-wide text-yellow-500">MOTO</h2>
                                 <div className="h-1 w-10 md:w-16 bg-yellow-500 mx-auto rounded-full mb-3 md:mb-4"></div>
                                 <p className="text-lg md:text-4xl font-black italic text-white drop-shadow-lg">
-                                    "Kenyang & Hemat"
+                                    &quot;Kenyang & Hemat&quot;
                                 </p>
                             </div>
                         </div>

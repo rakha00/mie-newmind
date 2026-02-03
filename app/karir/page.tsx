@@ -48,47 +48,59 @@ export default function KarirPage() {
             </div>
 
             <Section className="relative z-20 -mt-10 pt-20 pb-8 md:pb-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {CAREERS.map((job) => (
-                        <div key={job.id} className="bg-white p-8 rounded-2xl shadow-sm border border-neutral-200 hover:shadow-md transition-all flex flex-col h-full">
-                            <div className="flex justify-between items-start mb-4">
-                                <div>
-                                    <h3 className="text-2xl font-bold mb-1">{job.position}</h3>
-                                    <div className="flex items-center gap-2 text-primary font-medium">
-                                        <MapPin size={18} />
-                                        {job.location} ({job.type})
+                {CAREERS.length > 0 ? (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        {CAREERS.map((job) => (
+                            <div key={job.id} className="bg-white p-8 rounded-2xl shadow-sm border border-neutral-200 hover:shadow-md transition-all flex flex-col h-full">
+                                <div className="flex justify-between items-start mb-4">
+                                    <div>
+                                        <h3 className="text-2xl font-bold mb-1">{job.position}</h3>
+                                        <div className="flex items-center gap-2 text-primary font-medium">
+                                            <MapPin size={18} />
+                                            {job.location} ({job.type})
+                                        </div>
+                                    </div>
+                                    <div className="bg-neutral-100 p-3 rounded-full">
+                                        <Briefcase className="w-6 h-6" />
                                     </div>
                                 </div>
-                                <div className="bg-neutral-100 p-3 rounded-full">
-                                    <Briefcase className="w-6 h-6" />
+
+                                <p className="text-neutral-600 mb-6">
+                                    {job.description}
+                                </p>
+
+                                <div className="mb-8 flex-grow">
+                                    <h4 className="font-bold mb-2">Syarat:</h4>
+                                    <ul className="list-disc pl-5 text-neutral-600 space-y-1">
+                                        {job.requirements.map((req, idx) => (
+                                            <li key={idx}>{req}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                <div className="mt-auto">
+                                    <CTAButton
+                                        href={`https://wa.me/${job.whatsapp}?text=Halo%20min%20saya%20tertarik%20lamar%20${job.position}`}
+                                        variant="outline"
+                                        className="w-full justify-center"
+                                    >
+                                        Lamar via WhatsApp
+                                    </CTAButton>
                                 </div>
                             </div>
-
-                            <p className="text-neutral-600 mb-6">
-                                {job.description}
-                            </p>
-
-                            <div className="mb-8 flex-grow">
-                                <h4 className="font-bold mb-2">Syarat:</h4>
-                                <ul className="list-disc pl-5 text-neutral-600 space-y-1">
-                                    {job.requirements.map((req, idx) => (
-                                        <li key={idx}>{req}</li>
-                                    ))}
-                                </ul>
-                            </div>
-
-                            <div className="mt-auto">
-                                <CTAButton
-                                    href={`https://wa.me/${job.whatsapp}?text=Halo%20min%20saya%20tertarik%20lamar%20${job.position}`}
-                                    variant="outline"
-                                    className="w-full justify-center"
-                                >
-                                    Lamar via WhatsApp
-                                </CTAButton>
-                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    <div className="text-center py-8 bg-white rounded-3xl border border-neutral-200 shadow-sm mx-auto max-w-2xl px-6">
+                        <div className="bg-neutral-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <Briefcase className="w-10 h-10 text-neutral-400" />
                         </div>
-                    ))}
-                </div>
+                        <h3 className="text-2xl font-bold mb-3 text-neutral-800">Belum Ada Lowongan</h3>
+                        <p className="text-neutral-500 max-w-md mx-auto">
+                            Saat ini belum ada posisi yang tersedia.
+                        </p>
+                    </div>
+                )}
             </Section>
         </div>
     );

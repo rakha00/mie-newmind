@@ -32,7 +32,10 @@ export default function Navbar() {
 
     // Close mobile menu on route change
     useEffect(() => {
-        setIsOpen(false);
+        const timer = setTimeout(() => {
+            setIsOpen(false);
+        }, 0);
+        return () => clearTimeout(timer);
     }, [pathname]);
 
     return (

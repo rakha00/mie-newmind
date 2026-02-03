@@ -6,7 +6,7 @@ import Card from '@/components/ui/Card';
 
 export default function MenuPage() {
     // Define background themes for each category
-    const getCategoryTheme = (categoryId: string, index: number) => {
+    const getCategoryTheme = (categoryId: string) => {
         // Alternating: white (makanan), black (dimsum), white (minuman)
         const isDark = categoryId === 'dimsum';
         return {
@@ -63,11 +63,11 @@ export default function MenuPage() {
                 </div>
             </div>
 
-            {CATEGORIES.map((category, index) => {
+            {CATEGORIES.map((category) => {
                 const items = MENU_ITEMS.filter(item => item.category === category.id);
                 if (items.length === 0) return null;
 
-                const theme = getCategoryTheme(category.id, index);
+                const theme = getCategoryTheme(category.id);
 
                 return (
                     <div

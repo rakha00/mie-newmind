@@ -3,7 +3,7 @@
 import { OUTLETS } from '@/data/outlets';
 import Section from '@/components/ui/Section';
 import CTAButton from '@/components/ui/CTAButton';
-import { MapPin, Clock, Phone, Navigation, ArrowUpRight, Search, SortAsc, SortDesc } from 'lucide-react';
+import { MapPin, Clock, Phone, Navigation, Search, SortAsc, SortDesc } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -17,7 +17,11 @@ export default function OutletPage() {
         const now = new Date();
         const hours = now.getHours().toString().padStart(2, '0');
         const minutes = now.getMinutes().toString().padStart(2, '0');
-        setCurrentTime(`${hours}:${minutes}`);
+        // Wrap in setTimeout to avoid synchronous setState warning and ensure hydration match
+        const timer = setTimeout(() => {
+            setCurrentTime(`${hours}:${minutes}`);
+        }, 0);
+        return () => clearTimeout(timer);
     }, []);
 
     const isOpen = (open: string, close: string) => {
@@ -104,7 +108,7 @@ export default function OutletPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl mx-auto px-4">
                     <AnimatePresence mode="popLayout">
                         {filteredOutlets.length > 0 ? (
-                            filteredOutlets.map((outlet, index) => {
+                            filteredOutlets.map((outlet) => {
                                 const open = isOpen(outlet.openTime, outlet.closeTime);
                                 return (
                                     <motion.div

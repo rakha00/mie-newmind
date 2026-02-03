@@ -2,42 +2,38 @@ import fs from 'fs';
 import path from 'path';
 import Link from 'next/link';
 import Section from '@/components/ui/Section';
+import CTAButton from '@/components/ui/CTAButton';
+import { BookOpen } from 'lucide-react';
 
 export default async function BlogPage() {
     const contentDir = path.join(process.cwd(), 'content', 'blog');
+    let posts: { slug: string; title: string; date: string; excerpt: string }[] = [];
 
-    if (!fs.existsSync(contentDir)) {
-        return (
-            <Section className="text-center py-20">
-                <h1 className="text-4xl font-bold mb-4">Belum Ada Artikel</h1>
-                <p>Cek lagi nanti ya!</p>
-            </Section>
-        );
+    if (fs.existsSync(contentDir)) {
+        const files = fs.readdirSync(contentDir).filter(file => file.endsWith('.mdx'));
+
+        posts = files.map(file => {
+            const filePath = path.join(contentDir, file);
+            const content = fs.readFileSync(filePath, 'utf-8');
+
+            // Simple frontmatter parser (regex based for simplicity without heavy libs)
+            const titleMatch = content.match(/title:\s*"(.*?)"/);
+            const dateMatch = content.match(/date:\s*"(.*?)"/);
+            const excerptMatch = content.match(/excerpt:\s*"(.*?)"/);
+
+            const rawDate = dateMatch ? dateMatch[1] : '';
+            const formattedDate = rawDate
+                ? new Date(rawDate).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })
+                : '';
+
+            return {
+                slug: file.replace('.mdx', ''),
+                title: titleMatch ? titleMatch[1] : 'No Title',
+                date: formattedDate,
+                excerpt: excerptMatch ? excerptMatch[1] : '',
+            };
+        });
     }
-
-    const files = fs.readdirSync(contentDir).filter(file => file.endsWith('.mdx'));
-
-    const posts = files.map(file => {
-        const filePath = path.join(contentDir, file);
-        const content = fs.readFileSync(filePath, 'utf-8');
-
-        // Simple frontmatter parser (regex based for simplicity without heavy libs)
-        const titleMatch = content.match(/title:\s*"(.*?)"/);
-        const dateMatch = content.match(/date:\s*"(.*?)"/);
-        const excerptMatch = content.match(/excerpt:\s*"(.*?)"/);
-
-        const rawDate = dateMatch ? dateMatch[1] : '';
-        const formattedDate = rawDate
-            ? new Date(rawDate).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })
-            : '';
-
-        return {
-            slug: file.replace('.mdx', ''),
-            title: titleMatch ? titleMatch[1] : 'No Title',
-            date: formattedDate,
-            excerpt: excerptMatch ? excerptMatch[1] : '',
-        };
-    });
 
     return (
         <div className="min-h-screen bg-neutral-50">
@@ -83,29 +79,48 @@ export default async function BlogPage() {
             </div>
 
             <Section className="relative z-20 -mt-10 pt-20 pb-8 md:pb-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {posts.map((post) => (
-                        <Link key={post.slug} href={`/blog/${post.slug}`} className="group h-full">
-                            <article className="h-full bg-white p-6 rounded-3xl border border-neutral-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
-                                <div className="mb-4">
-                                    <div className="text-xs font-bold text-primary mb-2 uppercase tracking-wide">{post.date}</div>
-                                    <h2 className="text-2xl font-bold text-neutral-900 group-hover:text-primary transition-colors line-clamp-2 leading-tight">
-                                        {post.title}
-                                    </h2>
-                                </div>
-                                <p className="text-neutral-500 mb-6 line-clamp-3 text-sm leading-relaxed flex-grow">
-                                    {post.excerpt}
-                                </p>
-                                <div className="mt-auto flex items-center text-sm font-bold text-neutral-900 group-hover:text-primary transition-colors">
-                                    Baca Selengkapnya
-                                    <svg className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                    </svg>
-                                </div>
-                            </article>
-                        </Link>
-                    ))}
-                </div>
+                {posts.length > 0 ? (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {posts.map((post) => (
+                            <Link key={post.slug} href={`/blog/${post.slug}`} className="group h-full">
+                                <article className="h-full bg-white p-6 rounded-3xl border border-neutral-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                                    <div className="mb-4">
+                                        <div className="text-xs font-bold text-primary mb-2 uppercase tracking-wide">{post.date}</div>
+                                        <h2 className="text-2xl font-bold text-neutral-900 group-hover:text-primary transition-colors line-clamp-2 leading-tight">
+                                            {post.title}
+                                        </h2>
+                                    </div>
+                                    <p className="text-neutral-500 mb-6 line-clamp-3 text-sm leading-relaxed flex-grow">
+                                        {post.excerpt}
+                                    </p>
+                                    <div className="mt-auto flex items-center text-sm font-bold text-neutral-900 group-hover:text-primary transition-colors">
+                                        Baca Selengkapnya
+                                        <svg className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                        </svg>
+                                    </div>
+                                </article>
+                            </Link>
+                        ))}
+                    </div>
+                ) : (
+                    <div className="text-center py-8 bg-white rounded-3xl border border-neutral-200 shadow-sm mx-auto max-w-2xl px-6">
+                        <div className="bg-neutral-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <BookOpen className="w-10 h-10 text-neutral-400" />
+                        </div>
+                        <h3 className="text-2xl font-bold mb-3 text-neutral-800">Belum Ada Artikel</h3>
+                        <p className="text-neutral-500 max-w-md mx-auto mb-6">
+                            Mimin lagi nyari ide buat nulis nih. Tunggu update seru lainnya ya!
+                        </p>
+                        <CTAButton
+                            href="/"
+                            variant="primary"
+                            className="inline-flex px-8 text-white hover:text-white"
+                        >
+                            Kembali ke Beranda
+                        </CTAButton>
+                    </div>
+                )}
             </Section>
         </div>
     );

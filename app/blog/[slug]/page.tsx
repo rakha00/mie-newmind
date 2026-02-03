@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { notFound } from 'next/navigation';
 import Section from '@/components/ui/Section';
-import { CompileMDXResult } from 'next-mdx-remote/rsc'; // Not installed, using dynamic import or @next/mdx directly via import?
+// import { CompileMDXResult } from 'next-mdx-remote/rsc'; // Not installed, using dynamic import or @next/mdx directly via import?
 // Better: Use React Server Components to render content.
 // Since we used @next/mdx in next.config, we can just import the file dynamically?
 // But dynamic import paths need to be known. 

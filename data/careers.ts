@@ -1,4 +1,14 @@
-export const CAREERS = [
+export interface CareerJob {
+    id: string;
+    position: string;
+    location: string;
+    type: string;
+    description: string;
+    requirements: string[];
+    whatsapp: string;
+}
+
+export const CAREERS: CareerJob[] = [
     {
         id: 'crew-outlet',
         position: 'Crew Outlet',

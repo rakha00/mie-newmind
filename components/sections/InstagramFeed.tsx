@@ -2,8 +2,15 @@
 
 import { useEffect } from 'react';
 
+interface InstagramPost {
+    id: string;
+    link: string;
+    caption?: string;
+    media_url?: string;
+}
+
 interface InstagramFeedProps {
-    posts: any[];
+    posts: InstagramPost[];
 }
 
 export default function InstagramFeed({ posts }: InstagramFeedProps) {

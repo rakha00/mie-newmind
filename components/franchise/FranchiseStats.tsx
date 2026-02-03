@@ -178,7 +178,7 @@ export default function FranchiseStats() {
                                 </div>
                                 <div className="absolute left-[11px] md:left-1/2 md:-ml-[10px] w-5 h-5 bg-secondary rounded-full border-4 border-neutral-50 z-10 md:order-1 animate-pulse"></div>
                                 <div className="md:order-1 md:text-right">
-                                    <p className="text-neutral-600 italic">"Kami akan terus berinovasi untuk menjadi market leader yang tak tergoyahkan."</p>
+                                    <p className="text-neutral-600 italic">&quot;Kami akan terus berinovasi untuk menjadi market leader yang tak tergoyahkan.&quot;</p>
                                 </div>
                             </motion.div>
 
@@ -192,7 +192,7 @@ export default function FranchiseStats() {
                             >
                                 <div className="p-5 bg-white shadow-2xl shadow-neutral-200/50 border-l-8 border-primary rounded-r-3xl flex flex-col md:flex-row items-center gap-6 relative group hover:-translate-y-1 transition-transform duration-300">
                                     <p className="text-xl md:text-2xl font-bold italic text-neutral-800 leading-relaxed text-left">
-                                        "Mie Newmind Berhasil Tumbuh Dan Berinovasi Ditengah Persaingan Ketat Dalam Bisnis FnB Indonesia."
+                                        &quot;Mie Newmind Berhasil Tumbuh Dan Berinovasi Ditengah Persaingan Ketat Dalam Bisnis FnB Indonesia.&quot;
                                     </p>
                                 </div>
                             </motion.div>

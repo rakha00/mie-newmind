@@ -1,4 +1,14 @@
-export function GridPattern({ width = 40, height = 40, x = -1, y = -1, strokeDasharray = 0, className, ...props }: any) {
+import { SVGProps } from 'react';
+
+interface GridPatternProps extends SVGProps<SVGSVGElement> {
+    width?: number;
+    height?: number;
+    x?: number;
+    y?: number;
+    strokeDasharray?: number | string;
+}
+
+export function GridPattern({ width = 40, height = 40, x = -1, y = -1, strokeDasharray = 0, className, ...props }: GridPatternProps) {
     return (
         <svg
             aria-hidden="true"
@@ -26,7 +36,17 @@ export function GridPattern({ width = 40, height = 40, x = -1, y = -1, strokeDas
     );
 }
 
-export function DotPattern({ width = 16, height = 16, x = 0, y = 0, cx = 1, cy = 1, cr = 1, className, ...props }: any) {
+interface DotPatternProps extends SVGProps<SVGSVGElement> {
+    width?: number;
+    height?: number;
+    x?: number;
+    y?: number;
+    cx?: number;
+    cy?: number;
+    cr?: number;
+}
+
+export function DotPattern({ width = 16, height = 16, x = 0, y = 0, cx = 1, cy = 1, cr = 1, className, ...props }: DotPatternProps) {
     return (
         <svg
             aria-hidden="true"
