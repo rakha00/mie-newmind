@@ -51,7 +51,7 @@ export default function ReservasiPage() {
                 </div>
             </div>
 
-            <Section className="relative z-20 -mt-10 pt-16 pb-8 md:pb-8">
+            <Section className="relative z-20 -mt-10 pt-20 pb-8 md:pb-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
                     {REGIONS.map((region) => (
                         <div
