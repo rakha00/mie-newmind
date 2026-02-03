@@ -43,9 +43,12 @@ export default function Home() {
             </span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-neutral-200 font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-lg">
-            <span className="font-bold text-yellow-400">Mie viral</span> yang menghadirkan perpaduan sempurna <span className="font-bold text-red-400">pedas</span> bikin nagih, rasa bikin puas, dan harga tetap <span className="font-bold text-green-400">hemat</span>!
-          </p>
+          <div className="relative max-w-3xl mx-auto">
+            <div className="absolute inset-0 bg-black/40 backdrop-blur-sm rounded-2xl -z-10" />
+            <p className="text-lg md:text-xl text-white font-medium px-5 py-3 leading-relaxed drop-shadow-md border border-white/10 rounded-2xl shadow-xl">
+              <span className="font-bold text-yellow-400">Mie viral</span> yang menghadirkan perpaduan sempurna <span className="font-bold text-red-500">pedas</span> bikin nagih, rasa bikin puas, dan harga tetap <span className="font-bold text-green-400">hemat</span>!
+            </p>
+          </div>
 
           {/* Modern CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
@@ -75,7 +78,7 @@ export default function Home() {
           </div>
 
           {/* Decorative Bottom Line */}
-          <div className="flex items-center justify-center gap-2 pt-8">
+          <div className="flex items-center justify-center gap-2 pt-2">
             <div className="h-[2px] w-12 bg-gradient-to-r from-transparent to-white/50 rounded-full" />
             <div className="h-2 w-2 bg-primary rounded-full shadow-[0_0_20px_rgba(228,59,138,0.5)]" />
             <div className="h-[2px] w-12 bg-gradient-to-l from-transparent to-white/50 rounded-full" />

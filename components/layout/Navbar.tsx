@@ -72,7 +72,11 @@ export default function Navbar() {
                             href={link.href}
                             className={cn(
                                 "font-medium hover:text-[#fcc600] transition-colors",
-                                pathname === link.href ? "text-[#fcc600] font-bold" : "text-neutral-300"
+                                pathname === link.href
+                                    ? "text-[#fcc600] font-bold"
+                                    : pathname?.startsWith('/blog/') && !scrolled
+                                        ? "text-neutral-700"
+                                        : "text-neutral-200"
                             )}
                         >
                             {link.label}
