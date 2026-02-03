@@ -54,7 +54,7 @@ export default async function BlogPost({ params }: { params: { slug: string } })
     const title = titleMatch ? titleMatch[1] : 'Blog Post';
 
     return (
-        <div className="min-h-screen bg-neutral-50 pt-24 pb-12">
+        <div className="min-h-screen bg-neutral-50 pt-12 pb-12">
             <Section>
                 <div className="max-w-3xl mx-auto bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-neutral-200">
                     <h1 className="text-3xl md:text-5xl font-black italic mb-6">{title}</h1>
