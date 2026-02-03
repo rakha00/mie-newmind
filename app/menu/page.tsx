@@ -23,7 +23,7 @@ export default function MenuPage() {
     return (
         <div className="min-h-screen bg-neutral-50">
             {/* Dark Themed Header */}
-            <div className="relative bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 pt-28 pb-16 text-center text-white overflow-hidden border-b-4 border-primary">
+            <div className="relative bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 pt-28 pb-18 text-center text-white overflow-hidden border-b-4 border-primary">
                 {/* Geometric Pattern Background */}
                 <div className="absolute inset-0 opacity-20">
                     <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">

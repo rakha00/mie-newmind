@@ -9,7 +9,7 @@ export default function ReservasiPage() {
     return (
         <div className="min-h-screen bg-neutral-50 text-neutral-900">
             {/* Dark Themed Header from Menu Page Template */}
-            <div className="relative bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 pt-28 pb-16 text-center text-white overflow-hidden border-b-4 border-primary">
+            <div className="relative bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 pt-28 pb-18 text-center text-white overflow-hidden border-b-4 border-primary">
                 {/* Geometric Pattern Background */}
                 <div className="absolute inset-0 opacity-20">
                     <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
@@ -51,7 +51,7 @@ export default function ReservasiPage() {
                 </div>
             </div>
 
-            <Section className="relative z-20 -mt-10 pb-24">
+            <Section className="relative z-20 -mt-10 pt-16 pb-8 md:pb-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
                     {REGIONS.map((region) => (
                         <div
