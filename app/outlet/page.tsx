@@ -110,17 +110,6 @@ export default function OutletPage() {
                                                         </span>
                                                     </div>
                                                 </div>
-                                                <div className="flex gap-2">
-                                                    <a
-                                                        href={outlet.googleMapsUrl}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="p-2 rounded-lg bg-neutral-800 text-neutral-400 hover:bg-neutral-700 hover:text-white transition-colors"
-                                                        title="Open in Maps"
-                                                    >
-                                                        <ArrowUpRight className="w-4 h-4" />
-                                                    </a>
-                                                </div>
                                             </div>
 
                                             {/* Content */}
@@ -143,21 +132,32 @@ export default function OutletPage() {
 
                                             {/* Actions */}
                                             <div className="grid grid-cols-2 gap-3 mt-auto border-t border-neutral-800 pt-4">
-                                                <CTAButton
-                                                    href={outlet.googleMapsUrl}
-                                                    variant="outline"
-                                                    className="w-full text-xs font-medium h-9 bg-transparent border-neutral-700 hover:bg-neutral-800 hover:border-neutral-600"
-                                                >
-                                                    <Navigation className="w-3.5 h-3.5 mr-1.5" />
-                                                    Rute
-                                                </CTAButton>
-                                                <CTAButton
-                                                    href={`https://wa.me/${outlet.phone}`}
-                                                    className="w-full text-xs font-medium h-9"
-                                                >
-                                                    <Phone className="w-3.5 h-3.5 mr-1.5" />
-                                                    Hubungi
-                                                </CTAButton>
+                                                {outlet.googleMapsUrl ? (
+                                                    <CTAButton
+                                                        href={outlet.googleMapsUrl}
+                                                        variant="outline"
+                                                        className="w-full text-xs font-medium h-9 bg-transparent border-neutral-700 hover:bg-neutral-800 hover:border-neutral-600"
+                                                    >
+                                                        <Navigation className="w-3.5 h-3.5 mr-1.5" />
+                                                        Rute
+                                                    </CTAButton>
+                                                ) : (
+                                                    <div className="hidden" />
+                                                )}
+
+                                                {outlet.phone ? (
+                                                    <CTAButton
+                                                        href={`https://wa.me/${outlet.phone}`}
+                                                        className={`w-full text-xs font-medium h-9 ${!outlet.googleMapsUrl ? 'col-span-2' : ''}`}
+                                                    >
+                                                        <Phone className="w-3.5 h-3.5 mr-1.5" />
+                                                        Hubungi
+                                                    </CTAButton>
+                                                ) : (
+                                                    <div className="hidden" />
+                                                )}
+
+                                                {/* If both are missing, showing nothing or handle layout gracefully */}
                                             </div>
                                         </div>
                                     </motion.div>
