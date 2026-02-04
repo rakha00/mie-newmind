@@ -1,6 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mie Newmind
 
-## Getting Started
+A modern, premium restaurant franchise promotion website built with Next.js 16 and Tailwind CSS v4.
+
+[**Visit Live Demo**](https://mie-newmind.vercel.app/)
+
+## ✨ Features
+
+- **Responsive Design**: Fully responsive layout for all devices.
+- **Modern UI/UX**: clean, aesthetic, and dynamic interface using Framer Motion.
+- **Franchise Information**: Detailed investment and partnership opportunities.
+
+## 📸 Gallery
+
+<div align="center">
+  <img src="https://imgur.com/ygcUAR5.png" alt="Home Page" width="100%" />
+</div>
+
+### Menu & Offerings
+
+<div align="center">
+  <img src="https://imgur.com/jcXGlR7.png" alt="Menu" width="100%" />
+</div>
+
+### Franchise Opportunities
+
+<div align="center">
+  <img src="https://imgur.com/Qt7VO1L.png" alt="Franchise" width="100%" />
+</div>
+
+### Social Media Integration
+
+<div align="center">
+  <img src="https://imgur.com/mTUsUAP.png" alt="Instagram Feed" width="100%" />
+</div>
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 16 (App Router)](https://nextjs.org/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Animation**: [Framer Motion](https://www.framer.com/motion/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+
+## 🚀 Getting Started
 
 First, run the development server:
 
@@ -16,21 +58,8 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📦 Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new).
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
